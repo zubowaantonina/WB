@@ -1,13 +1,20 @@
+// import {cartCountTotal} from "./cart.js";
+
+
 const Search = () => {
     const blockSearch = document.querySelector(".search-block");
     const inputSearch = blockSearch.querySelector("input.form-control");
     const searchBtn = document.querySelector("#button-addon2");
     const searchMore = document.querySelector(".more");
+    const cartCount = document.querySelector(".cart-count");
+
+   
     // inputSearch.addEventListener("input", (e) => {
     //     console.log(e.target.value);
     // })
 
     const renderGoods = (goods) => {
+       
         const goodsContainer = document.querySelector(".long-goods-list");
         goodsContainer.innerHTML = "";
         goods.forEach((good) => {
@@ -45,7 +52,7 @@ const Search = () => {
                 } else {
                     renderGoods(array);
                 }
-
+               
                 // console.log(localStorage);
             });
     };
@@ -63,6 +70,7 @@ const Search = () => {
         if (searchMore) {
             searchMore.addEventListener("click", () => {
                 getData("");
+                cartCountTotal()
             });
         }
     

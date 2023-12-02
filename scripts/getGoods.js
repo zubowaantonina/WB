@@ -1,3 +1,4 @@
+
 const getGoods = () => {
     const links = document.querySelectorAll('.navigation-link')
 
