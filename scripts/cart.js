@@ -10,15 +10,18 @@ const cart = () => {
 
   //количество товара в корзине
   const cartCountTotal = () => {
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    const newCart = cart.reduce((sum, good) => {
-      return sum + good.count;
-    }, 0);
-    if (newCart === 0) {
-      cartCount.textContent = "";
-    } else {
-      cartCount.textContent = newCart;
-    }
+    // const cart = JSON.parse(localStorage.getItem("cart"));
+    // const newCart = cart.reduce((sum, good) => {
+    //   return sum + good.count;
+    // }, 0);
+    // if (newCart === 0) {
+    //   cartCount.textContent = "";
+    // } else {
+    //   cartCount.textContent = newCart;
+    // }
+    const cartsCounter = document.querySelector('.cart-count');
+    const cart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []
+    cartsCounter.textContent = cart.length;
   };
 //   cartCountTotal()
 
@@ -123,13 +126,17 @@ const cart = () => {
     const cartArray = localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
+      const formElement = document.querySelector('.modal-form');
+      const formData = new FormData(formElement); 
+      const name = formData.get('nameCustomer');
+      const phone = formData.get('phoneCustomer');
 
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
         cart: cartArray,
-        name: "",
-        phone: "",
+        name: name,
+        phone: phone,
       }),
     }).then(() => {
       cart.style.display = "";
