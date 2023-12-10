@@ -37,8 +37,8 @@ const Search = () => {
         });
     };
     const getData = (value) => {
-        // fetch("https://wildberris-6298f-default-rtdb.firebaseio.com/db.json")
-        fetch("db/db.json")
+        fetch("https://wildberris-6298f-default-rtdb.firebaseio.com/db.json")
+        // fetch("db/db.json")
             .then(
                 (res) => res.json() //response===res
             )
