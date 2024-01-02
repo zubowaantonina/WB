@@ -127,7 +127,8 @@ const cart = () => {
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
       const formElement = document.querySelector('.modal-form');
-      const formData = new FormData(formElement); 
+      const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
+      // теперь можно извлечь данные
       const name = formData.get('nameCustomer');
       const phone = formData.get('phoneCustomer');
 
